@@ -43,12 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Visitor\Visitor.cs" />
     <Compile Include="Block\Block.cs" />
     <Compile Include="ControlFlowGraph\ControlFlowGraph.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Visitor\AutoVisitor.cs" />
     <Compile Include="Visitor\FillParentVisitor.cs" />
+    <Compile Include="Visitor\Visitor.cs" />
+    <Compile Include="Visitor\AssignCountVisitor.cs" />
+    <Compile Include="Visitor\ChangeVisitor.cs" />
+    <Compile Include="Visitor\CycleNestedToIfVisitor.cs" />
+    <Compile Include="Visitor\IfNestedToCycleVisitor.cs" />
+    <Compile Include="Visitor\MaxCountExprOpsVisitor.cs" />
+    <Compile Include="Visitor\MaxDepthOfNestedCyclesVisitor.cs" />
+    <Compile Include="Visitor\NestedCyclesVisitor.cs" />
+    <Compile Include="Visitor\Opt11Visitor.cs" />
+    <Compile Include="Visitor\Opt2Visitor.cs" />
+    <Compile Include="Visitor\PrettyPrintVisitor.cs" />
+    <Compile Include="Visitor\StatementCountVisitor.cs" />
     <Compile Include="AstOptimisations\Optimisations.cs" />
     <Compile Include="Syntax\ParserHelper.cs" />
     <Compile Include="Syntax\ProgramTree.cs" />
