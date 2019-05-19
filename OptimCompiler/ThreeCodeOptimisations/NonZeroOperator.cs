@@ -6,10 +6,10 @@ using ProgramTree;
 
 namespace SimpleLang.Visitors
 {
-    public class Task1
+    public class NonZero_JTJ
     {
         public LinkedList<ThreeCode> code;
-        public Task1(ThreeAddressCodeVisitor Code)
+        public NonZero_JTJ(ThreeAddressCodeVisitor Code)
         {
             this.code = Code.GetCode();
         }
