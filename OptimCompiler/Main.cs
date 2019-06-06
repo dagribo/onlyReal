@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Reflection;
@@ -10,25 +10,16 @@ using SimpleLang.Visitors;
 using SimpleLang.ThreeCodeOptimisations;
 using CFG = SimpleLang.ControlFlowGraph.ControlFlowGraph;
 using SimpleLang.Block;
-<<<<<<< HEAD
-using SimpleLang.ThreeCodeOptimisations;
-=======
 using SimpleLang.ControlFlowGraph;
 using SimpleLang.GenericIterativeAlgorithm;
 using GenericTransferFunction;
->>>>>>> 43a006c53062329149a545b6036d6b3fe5495604
 
 namespace SimpleCompiler
 {
     public class SimpleCompilerMain
     {
         public static void Main(string[] args) {
-<<<<<<< HEAD
-
-            string FileName = @"../../../data/DeadOrAliveOptimization.txt";
-=======
             string FileName = @"../../../data/fib.txt";
->>>>>>> 43a006c53062329149a545b6036d6b3fe5495604
             if (args.Length > 0)
                 FileName = args[0];
             try {
@@ -50,10 +41,6 @@ namespace SimpleCompiler
                     FillParentVisitor generateParrent = new FillParentVisitor();
                     r.Visit(generateParrent);
 
-<<<<<<< HEAD
-
-                    //Console.WriteLine(r.ToString());
-=======
                     {
                         ThreeAddressCodeVisitor treeCod2e = new ThreeAddressCodeVisitor();
                         r.Visit(treeCod2e);
@@ -75,10 +62,6 @@ namespace SimpleCompiler
 
 
                     //Console.WriteLine(r.ToString());
-
-                    /*Opt2Visitor opt2 = new Opt2Visitor();
-					r.Visit(opt2);
->>>>>>> 43a006c53062329149a545b6036d6b3fe5495604
 
                     /*Opt2Visitor opt2 = new Opt2Visitor();
 					r.Visit(opt2);
@@ -119,72 +102,25 @@ namespace SimpleCompiler
                     ThreeAddressCodeVisitor treeCode = new ThreeAddressCodeVisitor();
                     r.Visit(treeCode);
                     var blocks = new Block(treeCode).GenerateBlocks();
-<<<<<<< HEAD
-
-                    // добавление фиктивных блоков входа и выхода программы
-                    var entryPoint = new LinkedList<ThreeCode>();
-                    entryPoint.AddLast(new ThreeCode("entry", "", ThreeOperator.None, null, null));
-                    var exitPoint = new LinkedList<ThreeCode>();
-                    exitPoint.AddLast(new ThreeCode("exit", "", ThreeOperator.None, null, null));
-                    blocks.Insert(0, entryPoint);
-                    blocks.Add(exitPoint);
-
-                    // построение CFG
-                    CFG controlFlowGraph = new CFG(blocks);
-=======
                     CFG controlFlowGraph = new CFG(blocks);
 
                     Console.WriteLine("\nГлубина графа:\n"+GraphDepth.GetGraphDepth(controlFlowGraph));
->>>>>>> 43a006c53062329149a545b6036d6b3fe5495604
                     Console.WriteLine(treeCode.ToString());
-                    // выполнение оптимизации для программы, не разбитой на блоки
-                    //DeadOrAliveOptimization.DeleteDeadVariables(treeCode.GetCode());
-                    // вычисление множеств Def и Use для всего графа потоков данных
-                    var DefUse = new DefUseBlocks(controlFlowGraph);
 
-                    var InOut = new InOutActiveVariables(DefUse, controlFlowGraph);
-
-                    ControlFlowOptimisations.DeadOrAliveOnGraph(InOut, controlFlowGraph);
-                    Console.WriteLine("\nafter DeleteDeadVariables for graph\n");
-                    foreach (var block in controlFlowGraph.blocks)
-                        foreach (var line in block)
-                            Console.WriteLine(line);
-                    Console.Write("");
-                    //DeadOrAliveOptimization.
-
-<<<<<<< HEAD
-
-
-                    //SimpleLang.Compiler.ILCodeGenerator gen = new SimpleLang.Compiler.ILCodeGenerator();
-                    //gen.Generate(treeCode.GetCode());
-                    //var lst = gen.GetGenerator().commands;
-                    //foreach(string cmd in lst)
-                    //{
-                    //    Console.WriteLine(cmd);
-                    //}
-                    //Console.WriteLine("\nExecute:");
-                    //gen.Execute();
-=======
                     // выполнение оптимизации для программы, не разбитой на блоки
                     //DeadOrAliveOptimization.DeleteDeadVariables(treeCode.GetCode());
                     // вычисление множеств Def и Use для всего графа потоков данных
                     /*var DefUse = new DefUseBlocks(controlFlowGraph);
-
                     var InOut = new InOutActiveVariables(DefUse, controlFlowGraph);
-
                     ControlFlowOptimisations.DeadOrAliveOnGraph(InOut, controlFlowGraph);
-
                     var DefUse = new DefUseBlocks(controlFlowGraph);
-
                     GraphToDOTHelper.SaveAsDOT("C:\\Users\\vladr\\Desktop\\graph.dot", controlFlowGraph);
                     var InOut = new InOutActiveVariables(DefUse, controlFlowGraph);
-
                     //ControlFlowOptimisations.DeadOrAliveOnGraph(InOut, controlFlowGraph);
                     Console.WriteLine("\nafter DeleteDeadVariables for graph\n");
                     foreach (var block in controlFlowGraph.blocks)
                         foreach (var line in block)
                             Console.WriteLine(line);
-
                     Console.Write("");*/
                     //DeadOrAliveOptimization.
 
@@ -192,12 +128,9 @@ namespace SimpleCompiler
 
                    /* SimpleLang.Compiler.ILCodeGenerator gen = new SimpleLang.Compiler.ILCodeGenerator();
                     gen.Generate(treeCode.GetCode());
-
 					gen.PrintCommands();
                     Console.WriteLine("\nExecute:");
                     gen.Execute();
->>>>>>> 43a006c53062329149a545b6036d6b3fe5495604
-
                     Console.Write("");*/
 
                     //DeadOrAliveOptimization.
@@ -228,17 +161,11 @@ namespace SimpleCompiler
                     app.Add(new DistributionOfConstants());
                     app.Add(new EvalConstExpr());
                     app.Add(new ApplyAlgebraicIdentities());
-<<<<<<< HEAD
-                    var blocks = app.Apply(treeCode);
-                    Console.WriteLine(ThreeAddressCodeVisitor.ToString(blocks));
-					CFG cfg = new CFG(blocks);
-=======
 
                     var blockws = app.Apply(treeCode);
                     Console.WriteLine(ThreeAddressCodeVisitor.ToString(blockws));
 
 					/*CFG cfg = new CFG(blocks);
->>>>>>> 43a006c53062329149a545b6036d6b3fe5495604
 					TransferFunction tf = new TransferFunction(cfg);
 					Console.WriteLine("\nGen 1");
 					foreach (var d in tf.Gen(blocks[0]))
