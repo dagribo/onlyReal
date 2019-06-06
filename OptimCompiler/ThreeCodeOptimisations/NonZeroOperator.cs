@@ -58,10 +58,7 @@ namespace SimpleLang.Visitors
                         var nn = line.Next.Value.arg1;
                         (line.Value.arg2 as ThreeAddressStringValue).Value = (line.Next.Value.arg1 as ThreeAddressStringValue).Value;
                         code.Remove(line.Next);
-<<<<<<< HEAD:OptimCompiler/TreeCodeOptimisations/NonZeroOperator.cs
-=======
                         code.Remove(line.Next);
->>>>>>> 43a006c53062329149a545b6036d6b3fe5495604:OptimCompiler/ThreeCodeOptimisations/NonZeroOperator.cs
                         line = line.Next;                      
                     }
                     line = line.Next.Next;
