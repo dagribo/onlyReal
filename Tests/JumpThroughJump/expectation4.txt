@@ -1,0 +1,5 @@
+	   a = 1
+           b = 2
+           if True goto label_1
+           b = 112
+label_1:

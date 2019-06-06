@@ -1,0 +1,9 @@
+{
+  int x, a, b,i, y, z, p, c, d, j;
+  x = a + b;
+  i = x;
+  y = c + d;
+  j = y;
+  z = i + b;
+  p = j + d;
+}

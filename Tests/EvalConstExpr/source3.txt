@@ -1,0 +1,6 @@
+{
+	real r;
+	r = 9/3;
+	bool b;
+	b = true || false;
+}

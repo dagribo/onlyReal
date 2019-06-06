@@ -1,0 +1,9 @@
+           a = 7,8
+           p = 9,3
+           if False goto label_1
+           a = a + 1,34
+           p = p + 5,98
+           if True goto label_3
+           p = 50,67
+label_3:
+label_1:

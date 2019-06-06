@@ -1,0 +1,13 @@
+{
+	int b;
+	int c;
+	if (true)
+	{
+		b=9;
+		c=8;
+	} 
+	else 
+	{
+
+	}
+}
